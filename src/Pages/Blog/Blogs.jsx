@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FaBars, FaTableCells, FaClock, FaChevronLeft, FaChevronRight , FaXmark } from "react-icons/fa6";
+import { FaBars, FaTableCells, FaClock, FaChevronLeft, FaChevronRight, FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-export default function Blogs({ posts, search, active, view, setView,setActive ,setSearch}) {
+export default function Blogs({ posts, search, active, view, setView, setActive, setSearch }) {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const searchText = search.trim().toLowerCase();
@@ -29,13 +29,16 @@ export default function Blogs({ posts, search, active, view, setView,setActive ,
     }
   }
 
-  function clearFilters() {
-  setActive("جميع المقالات");
-  setSearch("");
-  setCurrentPage(1);
-}
+  const hasFilters =
+    active !== "جميع المقالات" || search.trim() !== "";
 
-  
+  function clearFilters() {
+    setActive("جميع المقالات");
+    setSearch("");
+    setCurrentPage(1);
+  }
+
+
 
   return (
     <div className="bg-[#0B0B0B] px-6 py-10">
@@ -45,11 +48,18 @@ export default function Blogs({ posts, search, active, view, setView,setActive ,
 
           <div className="flex flex-row-reverse items-center gap-2">
 
-            <button
-            onClick={() => clearFilters()}
-            type="button" aria-label="مسح الفلاتر"  className={`flex  items-center justify-center    text-gray-400 transition-all duration-300   hover:text-orange-500 ${active === "جميع المقالات" ? "hidden" : "flex"} `}>
-             <FaXmark  size={15}/> {" "} مسح الفلاتر
-            </button>
+            {hasFilters && (
+              <button
+                onClick={clearFilters}
+                type="button"
+                aria-label="مسح الفلاتر"
+                className="flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-orange-500"
+              >
+                <FaXmark size={15} />
+                مسح الفلاتر
+              </button>
+            )}
+            
 
             <button type="button" aria-label="عرض القائمة" onClick={() => setView("list")} className={`flex h-11 w-11 items-center justify-center rounded-xl ${view === "list" ? "bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/20" : "border border-white/10 bg-[#171717] text-gray-400"}`}>
               <FaBars size={16} />
@@ -58,7 +68,7 @@ export default function Blogs({ posts, search, active, view, setView,setActive ,
               <FaTableCells size={16} />
             </button>
 
-            
+
 
           </div>
         </div>
@@ -102,6 +112,6 @@ export default function Blogs({ posts, search, active, view, setView,setActive ,
           <p className="text-sm text-gray-500">صفحة <span className="font-semibold text-orange-500">{currentPage}</span> من <span className="font-semibold text-white">{totalPages}</span></p>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

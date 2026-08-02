@@ -1,4 +1,5 @@
 import { FaEnvelope } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function ContactCTA() {
     return (
@@ -15,15 +16,15 @@ export default function ContactCTA() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
 
-                <button className="flex items-center gap-3 rounded-2xl bg-black px-10 py-4 text-lg font-semibold text-white transition hover:bg-zinc-900">
+                <Link to="/contact" className="flex items-center gap-3 rounded-2xl bg-black px-10 py-4 text-lg font-semibold text-white transition hover:bg-zinc-900">
                     <FaEnvelope />
                     تواصل معنا
-                </button>
+                </Link>
 
 
-                <button className="rounded-2xl border-2 border-white/60 px-10 py-4 text-lg font-semibold text-white transition hover:bg-white hover:text-orange-600">
+                <Link to="/blog" className="rounded-2xl border-2 border-white/60 px-10 py-4 text-lg font-semibold text-white transition hover:bg-white hover:text-orange-600">
                     تصفح المقالات
-                </button>
+                </Link>
 
 
             </div>
