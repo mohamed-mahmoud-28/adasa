@@ -1,7 +1,7 @@
 
 export default function HeroSecComponent({ herSecComp }) {
 
-    const { icon, number, title } = herSecComp
+    const { icon, Number: number, title } = herSecComp
 
     return (
 

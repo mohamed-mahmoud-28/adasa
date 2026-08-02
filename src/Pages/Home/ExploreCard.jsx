@@ -6,7 +6,7 @@ export default function ExploreCard({ category }) {
     return (
         <Link
             to={`/blog?category=${slug}`}
-            className="w-full min-h-48group relative overflow-hidden rounded-2xl border border-white/10 bg-[#171717] transition-all duration-300 hover:-translate-y-1 hover:border-orange-400 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-400 hover:shadow-[0_0_25px_rgba(249,115,22,.35)]"
+            className="group relative min-h-48 w-full overflow-hidden rounded-2xl border border-white/10 bg-[#171717] transition-all duration-300 hover:-translate-y-1 hover:border-orange-400 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-400 hover:shadow-[0_0_25px_rgba(249,115,22,.35)]"
         >
             <div className="flex h-52 flex-col justify-between p-6">
                 {/* Top */}

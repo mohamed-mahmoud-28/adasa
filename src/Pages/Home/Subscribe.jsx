@@ -2,7 +2,7 @@ import { FiMail } from "react-icons/fi";
 
 export default function NewsletterSection() {
     return (
-        <section className="bg-[#0b0b0b] py-24 px-4">
+        <section id="subscribe" className="bg-[#0b0b0b] py-24 px-4">
             <div className="max-w-5xl mx-auto rounded-[32px] border border-white/10 bg-[#171717] px-6 md:px-5 py-8 text-center relative overflow-hidden">
 
                 {/* Background Glow */}
@@ -25,10 +25,12 @@ export default function NewsletterSection() {
                 </p>
 
                 {/* Form */}
-                <form className="relative z-10 mt-10 flex flex-col md:flex-row-reverse gap-4 justify-center">
+                <form onSubmit={(event) => event.preventDefault()} className="relative z-10 mt-10 flex flex-col md:flex-row-reverse gap-4 justify-center">
 
                     <input
                         type="email"
+                        name="email"
+                        autoComplete="email"
                         placeholder="أدخل بريدك الإلكتروني"
                         className="w-full md:w-[460px] h-16 rounded-2xl bg-[#0d0d0d] border border-white/10 px-6 text-white placeholder:text-gray-500 outline-none focus:border-orange-500 transition"
                     />

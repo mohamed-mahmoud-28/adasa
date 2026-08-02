@@ -71,9 +71,9 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-5">
 
-          <button className="text-2xl text-gray-300 hover:text-white transition">
+          <Link to="/blog" aria-label="Search articles" className="text-2xl text-gray-300 hover:text-white transition">
             <IoMdSearch />
-          </button>
+          </Link>
 
           <Link to="/blog" className="rounded-full bg-orange-500 px-7 py-3 font-bold text-white transition hover:bg-orange-600">
             ابدأ القراءة
@@ -116,9 +116,9 @@ export default function Navbar() {
 
           <div className="mt-4 flex items-center justify-between px-6">
 
-            <button className="text-2xl text-white">
+            <Link to="/blog" onClick={() => setIsOpen(false)} aria-label="Search articles" className="text-2xl text-white">
               <IoMdSearch />
-            </button>
+            </Link>
 
             <Link to="/blog" onClick={() => setIsOpen(false)} className="rounded-full bg-orange-500 px-6 py-2 font-bold text-white hover:bg-orange-600 transition">
               ابدأ القراءة

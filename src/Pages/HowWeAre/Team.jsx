@@ -8,6 +8,7 @@ import {
 import plogs from "../../Data/BlogsData.json";
 
 export default function Team() {
+    const { social } = plogs.siteInfo;
 
     return (
         <section className="bg-[#0b0b0b] py-16">
@@ -56,17 +57,17 @@ export default function Team() {
                             </p>
 
                             <div className="mt-5 flex justify-center gap-3">
-                                <button className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
+                                <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
                                     <FaLinkedin />
-                                </button>
+                                </a>
 
-                                <button className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
+                                <a href={social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
                                     <FaGithub />
-                                </button>
+                                </a>
 
-                                <button className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
+                                <a href={social.twitter} target="_blank" rel="noopener noreferrer" aria-label="X" className="rounded-lg bg-zinc-800 p-2 text-gray-400 hover:bg-orange-500 hover:text-white">
                                     <FaXTwitter />
-                                </button>
+                                </a>
                             </div>
                         </div>
                     ))}

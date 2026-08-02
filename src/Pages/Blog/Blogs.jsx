@@ -59,7 +59,7 @@ export default function Blogs({ posts, search, active, view, setView, setActive,
                 مسح الفلاتر
               </button>
             )}
-            
+
 
             <button type="button" aria-label="عرض القائمة" onClick={() => setView("list")} className={`flex h-11 w-11 items-center justify-center rounded-xl ${view === "list" ? "bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/20" : "border border-white/10 bg-[#171717] text-gray-400"}`}>
               <FaBars size={16} />
@@ -102,14 +102,46 @@ export default function Blogs({ posts, search, active, view, setView, setActive,
         </div>
 
         <div className="flex flex-col items-center justify-center gap-6 py-20">
-          <div className="flex items-center gap-3">
-            <button type="button" aria-label="الصفحة السابقة" disabled={currentPage === 1} onClick={goToPreviousPage} className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#161616] text-gray-400 transition-all duration-300 hover:border-orange-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"><FaChevronRight size={18} /></button>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              aria-label="الصفحة السابقة"
+              disabled={currentPage === 1}
+              onClick={goToPreviousPage}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#161616] text-gray-400 transition-all duration-300 hover:border-orange-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-14 sm:rounded-2xl"
+            >
+              <FaChevronRight className="text-sm sm:text-lg" />
+            </button>
+
             {Array.from({ length: totalPages }, (_, index) => (
-              <button type="button" key={index + 1} onClick={() => setCurrentPage(index + 1)} className={`flex h-14 w-14 items-center justify-center rounded-2xl border font-semibold transition-all duration-300 ${currentPage === index + 1 ? "border-orange-500 bg-orange-500 text-white" : "border-white/10 bg-[#161616] text-gray-300 hover:border-orange-500 hover:text-white"}`}>{index + 1}</button>
+              <button
+                type="button"
+                key={index + 1}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl border text-sm font-semibold transition-all duration-300 sm:h-14 sm:w-14 sm:rounded-2xl sm:text-base ${currentPage === index + 1
+                    ? "border-orange-500 bg-orange-500 text-white"
+                    : "border-white/10 bg-[#161616] text-gray-300 hover:border-orange-500 hover:text-white"
+                  }`}
+              >
+                {index + 1}
+              </button>
             ))}
-            <button type="button" aria-label="الصفحة التالية" disabled={currentPage === totalPages} onClick={goToNextPage} className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#161616] text-gray-400 transition-all duration-300 hover:border-orange-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"><FaChevronLeft size={18} /></button>
+
+            <button
+              type="button"
+              aria-label="الصفحة التالية"
+              disabled={currentPage === totalPages}
+              onClick={goToNextPage}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[#161616] text-gray-400 transition-all duration-300 hover:border-orange-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-14 sm:rounded-2xl"
+            >
+              <FaChevronLeft className="text-sm sm:text-lg" />
+            </button>
           </div>
-          <p className="text-sm text-gray-500">صفحة <span className="font-semibold text-orange-500">{currentPage}</span> من <span className="font-semibold text-white">{totalPages}</span></p>
+
+          <p className="text-center text-xs text-gray-500 sm:text-sm">
+            صفحة <span className="font-semibold text-orange-500">{currentPage}</span> من{" "}
+            <span className="font-semibold text-white">{totalPages}</span>
+          </p>
         </div>
       </div>
     </div >

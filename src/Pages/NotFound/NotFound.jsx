@@ -81,11 +81,11 @@ export default function NotFound() {
                             المدونة
                         </Link>
                         <span className="text-gray-600">·</span>
-                        <Link to="/HowWeAre" className="text-orange-500 transition hover:text-orange-400">
+                        <Link to="/about" className="text-orange-500 transition hover:text-orange-400">
                             من نحن
                         </Link>
                         <span className="text-gray-600">·</span>
-                        <Link to="/privacy" className="text-orange-500 transition hover:text-orange-400">
+                        <Link to="/privacy-policy" className="text-orange-500 transition hover:text-orange-400">
                             الخصوصية
                         </Link>
                     </div>

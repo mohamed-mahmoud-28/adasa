@@ -5,8 +5,11 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import siteData from "../../Data/BlogsData.json";
 
 export default function Footer() {
+  const { social } = siteData.siteInfo;
+
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#0B0B0B]">
 
@@ -38,28 +41,40 @@ export default function Footer() {
             <div className="mt-8 flex gap-3">
 
               <a
-                href="#"
+                href={social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
                 className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#171717] text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
               >
                 <FaYoutube size={18} />
               </a>
 
               <a
-                href="#"
+                href={social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#171717] text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
               >
                 <FaLinkedinIn size={17} />
               </a>
 
               <a
-                href="#"
+                href={social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#171717] text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
               >
                 <FaGithub size={18} />
               </a>
 
               <a
-                href="#"
+                href={social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
                 className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#171717] text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
               >
                 <FaXTwitter size={17} />
@@ -112,6 +127,9 @@ export default function Footer() {
               <Link to="/blog?category=تقنيات" className="block text-gray-400 transition hover:text-orange-500">
                 تقنيات
               </Link>
+              <Link to="/blog?category=معدات" className="block text-gray-400 transition hover:text-orange-500">
+                معدات
+              </Link>
             </div>
 
           </div>
@@ -136,7 +154,7 @@ export default function Footer() {
             />
 
             <Link
-              to="/subscribe"
+              to="/#subscribe"
               className="mt-4 flex h-12 w-full items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/25"
             >
               اشترك
@@ -160,7 +178,7 @@ export default function Footer() {
           </p>
 
           {/* Developer */}
-          <p className="text-center text-gray-500">
+          <p className="md:text-center  text-gray-500">
             Developed by{" "}
             <a
               href="https://mohamedghobara.vercel.app/"
